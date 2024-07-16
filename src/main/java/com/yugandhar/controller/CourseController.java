@@ -1,14 +1,23 @@
 package com.yugandhar.controller;
 
-import com.yugandhar.dto.Course;
-import com.yugandhar.service.CourseService;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.yugandhar.dto.Course;
+import com.yugandhar.service.CourseService;
 
 @RestController
 @RequestMapping("/courses")
@@ -64,8 +73,14 @@ public class CourseController {
 
 
     @GetMapping("/welcome")
-    public String greetings() {
-        return "Hello Techie , AWS CICD Example working fine Yugandhar Reddy super success! Thank you";
+    public List<Course> greetings() {
+    	List<Course> list = new ArrayList<>();
+    	list.add(new Course(1, "Java", 100));
+    	list.add(new Course(2, "AWS", 1000));
+    	list.add(new Course(3, "Spring", 600));
+    	list.add(new Course(4, "Microsoft", 1200));
+    	list.add(new Course(5, "Google", 900));
+        return list;
     }
 
 
