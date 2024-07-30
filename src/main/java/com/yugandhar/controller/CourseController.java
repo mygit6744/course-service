@@ -68,7 +68,7 @@ public class CourseController {
 
     @GetMapping("/health")
     public String healthCheck() {
-        return "UPS yug";
+        return "Health check done";
     }
 
 
